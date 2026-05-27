@@ -1,0 +1,155 @@
+1.
+use CRUD_DB
+
+2.
+db.createCollection("users")
+
+3.
+db.users.insertMany([
+{
+    name: "John",
+    age: 28,
+    email: "john@gmail.com",
+    country: "USA"
+},
+{
+    name: "Emma",
+    age: 32,
+    email: "emma@gmail.com",
+    country: "Canada"
+},
+{
+    name: "Raj",
+    age: 24,
+    email: "raj@gmail.com",
+    country: "India"
+},
+{
+    name: "Sophia",
+    age: 30,
+    email: "sophia@gmail.com",
+    country: "USA"
+},
+{
+    name: "David",
+    age: 36,
+    email: "david@gmail.com",
+    country: "UK"
+}
+])
+
+4.
+MongoDB automatically creates a unique _id field.
+
+5.
+db.users.find()
+
+6.
+db.users.find({
+    age: { $gte: 25, $lte: 35 }
+})
+
+7.
+db.users.find({
+    country: "USA"
+})
+
+8.
+db.users.updateOne(
+    { name: "John" },
+    { $set: { email: "john123@gmail.com" } }
+)
+
+9.
+db.users.updateMany(
+    { age: { $gt: 30 } },
+    { $inc: { age: 1 } }
+)
+
+10.
+db.users.deleteOne({
+    name: "Raj"
+})
+
+11.
+db.users.deleteMany({
+    age: { $lt: 25 }
+})
+
+12.
+use Product_DB
+
+13.
+db.createCollection("products")
+
+14.
+db.products.insertMany([
+{
+    name: "Laptop",
+    category: "Electronics",
+    price: 45000,
+    quantity: 10
+},
+{
+    name: "Mobile",
+    category: "Electronics",
+    price: 25000,
+    quantity: 15
+},
+{
+    name: "Shoes",
+    category: "Fashion",
+    price: 3000,
+    quantity: 20
+},
+{
+    name: "Watch",
+    category: "Accessories",
+    price: 5000,
+    quantity: 8
+},
+{
+    name: "Headphones",
+    category: "Electronics",
+    price: 2000,
+    quantity: 0
+}
+])
+
+15.
+MongoDB automatically creates a unique _id field.
+
+16.
+db.products.find()
+
+17.
+db.products.find({
+    price: { $gte: 20, $lte: 50 }
+})
+
+18.
+db.products.find({
+    category: "Electronics"
+})
+
+19.
+db.products.updateOne(
+    { name: "Laptop" },
+    { $set: { price: 50000 } }
+)
+
+20.
+db.products.updateMany(
+    { quantity: { $gt: 0 } },
+    { $inc: { quantity: -1 } }
+)
+
+21.
+db.products.deleteOne({
+    name: "Watch"
+})
+
+22.
+db.products.deleteMany({
+    quantity: 0
+})
